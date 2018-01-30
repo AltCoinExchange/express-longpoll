@@ -116,7 +116,7 @@ var longpoll = function(app, opts) {
                 var dispatcher = _newDispatcher(url, opts);
 
                 // Setup the GET handler for a longpoll request
-                _app.get(url, middleware, (req, res) => {
+                _app[opts.method](url, middleware, (req, res) => {
                     var eventId = "longpoll";
 
                     // Check if there is an ID associated with the request
